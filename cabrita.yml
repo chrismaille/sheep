@@ -1,0 +1,11 @@
+version: 2
+title: My Docker Project
+layout: horizontal
+compose_files:
+  - ./docker-compose.yml
+  - ./docker-compose.override.yml
+boxes:
+  main_box:
+    main: true
+    name: My main Box
+    port_detail: both
