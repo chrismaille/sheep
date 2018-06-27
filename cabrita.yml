@@ -8,4 +8,5 @@ boxes:
   main_box:
     main: true
     name: My main Box
+    port_view: column
     port_detail: both
