@@ -1,12 +1,13 @@
 version: 2
 title: My Docker Project
-layout: horizontal
+background_color: grey # options: black, blue, cyan, grey, yellow, white
 compose_files:
   - ./docker-compose.yml
-  - ./docker-compose.override.yml
 boxes:
   main_box:
     main: true
     name: My main Box
-    port_view: column
-    port_detail: both
+    port_view: status # options: column, name, status
+    port_detail: internal # options: internal, external or both
+    show_revision: true # will show commit hash and git tag if available
+    watch_branch: origin/staging # check how ahead or behind you are regard this branch
