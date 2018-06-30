@@ -3,11 +3,27 @@ title: My Docker Project
 background_color: grey # options: black, blue, cyan, grey, yellow, white
 compose_files:
   - ./docker-compose.yml
+  - ./docker-compose.override.yml
 boxes:
   main_box:
     main: true
-    name: My main Box
+    name: My Services
     port_view: status # options: column, name, status
     port_detail: internal # options: internal, external or both
     show_revision: true # will show commit hash and git tag if available
     watch_branch: origin/staging # check how ahead or behind you are regard this branch
+  django:
+    name: Django Apps
+    show_git: false
+    includes:  # this box will show only services named in includes and categories options
+      - django
+    categories: # for each included service, add column for each category below
+      - worker
+      - redis
+watchers:
+  ping:  # ping watchers are using to ping informed address each n seconds.
+    google:
+      name: Check internet connectivity
+      address: https://www.google.com
+      message_on_success: UP
+      message_on_error: DOWN
