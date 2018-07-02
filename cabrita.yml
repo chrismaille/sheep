@@ -12,12 +12,16 @@ boxes:
     port_detail: internal # options: internal, external or both
     show_revision: true # will show commit hash and git tag if available
     watch_branch: origin/staging # check how ahead or behind you are regard this branch
+    watch_for_build_using_files: # check if Dockerfile last modification date is greater than docker image build date
+      - Dockerfile
+    watch_for_build_using_git: # check if last commit date in flask project is greater than docker image build date
+      - flask
   django:
     name: Django Apps
     show_git: false
     includes:  # this box will show only services named in includes and categories options
       - django
-    categories: # for each included service, add column for each category below
+    categories: # for each included service, add a column for each category below
       - worker
       - redis
 watchers:
