@@ -16,7 +16,7 @@ services:
       - postgres
   flask:
     build:
-      context: ./flask_app
+      context: flask_app
     image: "flask:dev"
     ports:
       - "5010:5000"
